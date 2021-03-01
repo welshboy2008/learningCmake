@@ -12,12 +12,20 @@ project(tutorial VERSION 1.0)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED true)
 
+# add the local library to the project
+add_subdirectory(MathFunctions)
+
+
 # Now we configure a header file to pass the version number
 # to the source code/
 configure_file(TutorialConfig.h.in tutorialConfig.h)
 
 
+
 # What's the executable artefact we're going to produce?
 add_executable(tutorial tutorial.cxx)
 
-target_include_directories(tutorial PUBLIC "${PROJECT_BINARY_DIR}")
+target_link_libraries(tutorial PUBLIC MathFunctions)
+
+target_include_directories(tutorial PUBLIC "${PROJECT_BINARY_DIR}"
+                                           "${PROJECT_SOURCE_DIR}/MathFunctions")
