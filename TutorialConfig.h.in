@@ -1,0 +1,4 @@
+// This is a confiured header file. (Why are they covering this
+// in an Introduction to Cmake?)
+#define tutorial_VERSION_MAJOR @tutorial_VERSION_MAJOR@
+#define tutorial_VERSION_MINOR @tutorial_VERSION_MINOR@
